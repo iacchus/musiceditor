@@ -26,6 +26,7 @@ html, body
 	max-width: 100%;
 	width: 100%;
 	display: flex;
+	flex-direction: row;
 	align-item: stretch;
 }
 
@@ -42,40 +43,39 @@ html, body
 	margin: 0 !important;
 	padding: 0 !important; 
 
-	width: 50%;
-	//max-width: 100%;
-	min-width: 50%;
-
 	max-height: 100%;
 
 //	flex-grow: 2;
 //	flex-shrink: 2;
 	//flex-basis: 0;
+	//flex: 1;
 
 }
 
 #editor-textarea
 {
-	width: 30%;
+	width: 35%;
 	height: 100%;
 	font-family: monospace;
 	border: 1px solid #333;
 	flex-grow: 1;
+	flex-shrink: 3;
 }
 
 #editor-preview {
-	width: 70%;
+	width: 65%;
 	height: 100%;
 	border: 1px solid #333;
 	overflow: auto;
-	flex-grow: 2;
+	flex-grow: 3;
+	flex-shrink: 1;
 }
 
 #editor-preview > svg
 {
 	overflow: auto;
 	max-width: 100%;
-
+	margin: 0 !important;
 }
 
 .ui-wrapper { margin: 0 !important; padding: 0 !important; }
