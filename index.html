@@ -20,8 +20,12 @@
 
   <!-- body content here -->
   <div id="data-container" class="row">
-    <div id="editor-container" class="small-6 columns" style="border-color: #333;"></div>
-    <div id="preview-container" class="small-6 columns" style="border-color: #333;"></div>
+    <div id="editor-container" class="small-6 columns" style="border-color: #333;">
+      <textarea id="editor-textarea"></textarea>
+    </div>
+    <div id="preview-container" class="small-6 columns" style="border-color: #333;">
+      <div id="editor-preview"></div>
+    </div>
   </div>
 
 
@@ -30,6 +34,10 @@
   <script src="js/abcjs_editor_1.12-min.js"></script>
   <script>
     $(document).foundation();
+    $(document).ready(function(){
+      abc_editor = new ABCJS.Editor("editor-textarea", { canvas_id: "editor-preview" });
+      //abc_editor = new ABCJS.Editor("editor-textarea", { canvas_id: "editor-preview", midi_id:"midi", warnings_id:"warnings"});
+    });
   </script>
 </body>
 </html>
