@@ -1,0 +1,10 @@
+html, body
+{
+	height: 100%;
+}
+
+#editor-container, #preview-container
+{
+	height: 100%;
+}
+
