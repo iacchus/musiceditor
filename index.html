@@ -4,21 +4,57 @@
 
 <head>
   <meta charset="utf-8">
-  <!-- If you delete this meta tag World War Z will become a reality -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML5 Sheet Music Editor</title>
 
-  <!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/foundation.css">
   <link rel="stylesheet" href="css/musiceditor.css">
 
   <script src="js/vendor/modernizr.js"></script>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script src="js/abcjs_editor_1.12-min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(document).foundation();
+      abc_editor = new ABCJS.Editor("editor-textarea", { canvas_id: "editor-preview" });
+      //abc_editor = new ABCJS.Editor("editor-textarea", { canvas_id: "editor-preview", midi_id:"midi", warnings_id:"warnings"});
+    });
+  </script>
 
 </head>
 <body>
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href="#">HTML5 Sheet Music Editor</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
 
-  <!-- body content here -->
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class="active"><a href="#">Right Button Active</a></li>
+      <li class="has-dropdown">
+        <a href="#">Right Button Dropdown</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+          <li class="active"><a href="#">Active link in dropdown</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><a href="#">Left Nav Button</a></li>
+    </ul>
+  </section>
+</nav>
+
   <div id="data-container" class="row">
     <div id="editor-container" class="small-6 columns" style="border-color: #333;">
       <textarea id="editor-textarea"></textarea>
@@ -27,17 +63,5 @@
       <div id="editor-preview"></div>
     </div>
   </div>
-
-
-  <script src="js/vendor/jquery.js"></script>
-  <script src="js/foundation.min.js"></script>
-  <script src="js/abcjs_editor_1.12-min.js"></script>
-  <script>
-    $(document).foundation();
-    $(document).ready(function(){
-      abc_editor = new ABCJS.Editor("editor-textarea", { canvas_id: "editor-preview" });
-      //abc_editor = new ABCJS.Editor("editor-textarea", { canvas_id: "editor-preview", midi_id:"midi", warnings_id:"warnings"});
-    });
-  </script>
 </body>
 </html>
