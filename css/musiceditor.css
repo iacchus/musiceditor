@@ -30,14 +30,6 @@ html, body
 	align-item: stretch;
 }
 
-/*#editor-container, #preview-container
-{
-	width: 50%;
-	border: 1px solid #333;
-
-}*/
-
-
 #editor-textarea, #editor-preview
 {
 	margin: 0 !important;
@@ -45,34 +37,27 @@ html, body
 
 	max-height: 100%;
 
-//	flex-grow: 2;
-//	flex-shrink: 2;
-	//flex-basis: 0;
-	//flex: 1;
-
 }
 
 #editor-textarea
 {
-	width: 35%;
+	width: 30%;
 	height: 100%;
 	font-family: monospace;
-//	border: 1px solid #333;
 	border: 0;
 	flex-grow: 1;
 	flex-shrink: 3;
 
-	padding: 5px 0 0 5px !important;
+	padding: 7px 0 0 7px !important;
 
 	font-family: 'Inconsolata', monospace;
-	font-weight: 700;
+	font-weight: 500;
 	font-size: 16px;
 }
 
 #editor-preview {
-	width: 65%;
+	width: 70%;
 	height: 100%;
-	//border: 1px solid #333;
 	border-left: 1px solid #333;
 	overflow: auto;
 	flex-grow: 3;

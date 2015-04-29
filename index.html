@@ -8,59 +8,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML5 Sheet Music Editor</title>
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/foundation.css">
-  <link rel="stylesheet" href="css/musiceditor.css">
-  <link rel="stylesheet" href="css/jquery-ui.css">
+
   <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/normalize.css">
+  <!--   <link rel="stylesheet" href="css/foundation.css"> -->
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/musiceditor.css">
 
   <script src="js/vendor/modernizr.js"></script>
   <script src="js/vendor/jquery.js"></script>
   <script src="js/jquery-ui.min.js"></script>
-  <script src="js/foundation.min.js"></script>
+  <!--  <script src="js/foundation.min.js"></script> -->
   <script src="js/abcjs_editor_1.12-min.js"></script>
   <script>
     $(document).ready(function(){
 
-      $(document).foundation();
+    //  $(document).foundation();
 
-      $("#editor-textarea").resizable();
+      $("#editor-textarea").resizable({handles: "e, w"});
 
-      abc_editor = new ABCJS.Editor("editor-textarea", { canvas_id: "editor-preview" });
-      //abc_editor = new ABCJS.Editor("editor-textarea", { canvas_id: "editor-preview", midi_id:"midi", warnings_id:"warnings"});
+	window.abc_editor = new ABCJS.Editor(
+		"editor-textarea",
+		{
+			canvas_id: "editor-preview",
+			//midi_id: "editor-midi",
+			//warnings_id: "editor-warnings"
+		}
+	);
+
+	preview_width = $("#editor-preview").width();
+	window.abc_editor.paramChanged({
+		staffwidth: (preview_width-30)
+	});
+
+	$("div").resize(function(){
+		preview_width = $("#editor-preview").width();
+		window.abc_editor.paramChanged({ staffwidth: (preview_width-30) });
+	});
+			
     });
+
+
   </script>
 
 </head>
 <body>
-<!--<nav class="top-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1><a href="#">HTML5 Sheet Music Editor</a></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
-
-  <section class="top-bar-section">
-    <ul class="right">
-      <li class="active"><a href="#">Right Button Active</a></li>
-      <li class="has-dropdown">
-        <a href="#">Right Button Dropdown</a>
-        <ul class="dropdown">
-          <li><a href="#">First link in dropdown</a></li>
-          <li class="active"><a href="#">Active link in dropdown</a></li>
-        </ul>
-      </li>
-    </ul>
-
-    <ul class="left">
-      <li><a href="#">Left Nav Button</a></li>
-    </ul>
-  </section>
-</nav>-->
-
-  <div id="data-container" class="roww">
-      <textarea id="editor-textarea"></textarea>
+  <div id="data-container">
+      <textarea id="editor-textarea">
+X: 1
+T: Morrison's
+R: jig
+M: 6/8
+L: 1/8
+K: Edor
+|:E3 B3|EBE AFD|EDE B3|dcB AFD|
+E3 B3|EBE AFD|G3 FGA|dAG FED:|
+Bee fee|aee fee|Bee fee|a2g fed|
+Bee fee|aee fee|gfe d2A|BAG FGA|
+Bee fee|aee fee|Bee fee|faf def|
+g3 gfe|def g2d|edc d2A|BAG FED|
+      </textarea>
       <div id="editor-preview"></div>
   </div>
 </body>
