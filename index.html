@@ -30,7 +30,7 @@
 	window.abc_editor = new ABCJS.Editor(
 		"editor-textarea",
 		{
-			canvas_id: "editor-preview",
+			canvas_id: "editor-preview"
 			//midi_id: "editor-midi",
 			//warnings_id: "editor-warnings"
 		}
@@ -38,9 +38,9 @@
 
 	preview_width = $("#editor-preview").width();
 	window.abc_editor.paramChanged({
-		scale: 1.25,
-		staffwidth: (preview_width-30)
-		paddintop: 15,
+		scale: 1,
+		staffwidth: (preview_width-30),
+		paddingtop: 15,
 		paddingbottom: 15,
 		paddingright: 15,
 		paddingleft: 15
@@ -48,7 +48,14 @@
 
 	$("div").resize(function(){
 		preview_width = $("#editor-preview").width();
-		window.abc_editor.paramChanged({ staffwidth: (preview_width-30) });
+		window.abc_editor.paramChanged({
+			scale: 1,
+			staffwidth: (preview_width-30),
+			paddingtop: 15,
+			paddingbottom: 15,
+			paddingright: 15,
+			paddingleft: 15
+		});
 	});
 			
     });
