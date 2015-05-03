@@ -78,6 +78,13 @@ html, body
 	font-size: 14px;
 }
 
+#editor-midi
+{
+	min-height: 20px;
+	height: 20px;
+	width: 100%;
+}
+
 #editor-preview {
 	width: 70%;
 	min-height: 100%;
