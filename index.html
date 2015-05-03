@@ -25,14 +25,14 @@
 
     //  $(document).foundation();
 
-      $("#editor-textarea").resizable({handles: "e, w"});
+//      $("#left-menu").resizable({handles: "e, w"});
 
 	window.abc_editor = new ABCJS.Editor(
 		"editor-textarea",
 		{
-			canvas_id: "editor-preview"
+			canvas_id: "editor-preview",
 			//midi_id: "editor-midi",
-			//warnings_id: "editor-warnings"
+			warnings_id: "editor-extra"
 		}
 	);
 
@@ -66,6 +66,7 @@
 </head>
 <body>
   <div id="data-container">
+    <div id="left-menu">
       <textarea id="editor-textarea">
 X: 1
 T: Morrison's
@@ -79,7 +80,9 @@ Bee fee|aee fee|Bee fee|a2g fed|
 Bee fee|aee fee|gfe d2A|BAG FGA|
 Bee fee|aee fee|Bee fee|faf def|
 g3 gfe|def g2d|edc d2A|BAG FED|
-      </textarea>
+</textarea>
+    <div id="editor-extra"></div>
+    </div>
       <div id="editor-preview"></div>
   </div>
 </body>
