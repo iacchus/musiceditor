@@ -15,6 +15,9 @@ html, body
 	font-family: 'Roboto';
 }
 
+svg * {
+	font-family: 'Roboto';
+}
 
 #data-container{
 	max-width: 100%;
