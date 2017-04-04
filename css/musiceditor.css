@@ -16,7 +16,7 @@ html, body
 }
 
 svg * {
-	font-family: 'Old Standard TT';
+	font-family: 'Old Standard TT', 'Slabo 27px', 'Roboto';
 }
 
 #data-container{
