@@ -120,6 +120,7 @@ svg * {
 	max-height: 100%;
 	border-left: 1px solid #333;
 	overflow: auto !important;
+	text-align: center;
 	flex-grow: 3;
 	flex-shrink: 1;
 }
